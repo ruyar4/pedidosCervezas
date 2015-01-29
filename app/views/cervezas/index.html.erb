@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cervezas</h1>
+<div class="jumbotron">
+</div>
+
+<div class="container">
+      <% @cervezas.each do |cerveza| %>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <%= cerveza.nombre %>
+            <%= cerveza.tipo %>
+            <img src="<%= cerveza.photo_url %>" class="img-responsive">
+
+            <div class="buttons">
+              <%= link_to 'Show', cerveza, class:'btn' %>
+              <!--<td><%= link_to 'Edit', edit_cerveza_path(cerveza) %></td>
+              <td><%= link_to 'Destroy', cerveza, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+              <a href="<%= new_cerveza_pedido_path(cerveza) %>" class="btn btn-primary"> pedir </a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  <br>
+
+  <!--<%= link_to 'New Cerveza', new_cerveza_path %> -->
+</div>
