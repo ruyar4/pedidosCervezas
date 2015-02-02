@@ -1,10 +1,10 @@
 class CervezasController < ApplicationController
   before_action :set_cerveza, only: [:show, :edit, :update, :destroy]
-
   # GET /cervezas
   # GET /cervezas.json
   def index
     @cervezas = Cerveza.all
+    @mis_pedidos = current_user.pedidos
   end
 
   # GET /cervezas/1
