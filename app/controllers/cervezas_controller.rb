@@ -4,7 +4,9 @@ class CervezasController < ApplicationController
   # GET /cervezas.json
   def index
     @cervezas = Cerveza.all
-    @mis_pedidos = current_user.pedidos
+    if user_signed_in?
+      @mis_pedidos = current_user.pedidos
+    end
   end
 
   # GET /cervezas/1

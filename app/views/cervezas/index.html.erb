@@ -2,8 +2,10 @@
 
 <h1>Listing Cervezas</h1>
 <div class="jumbotron">
-  <% @mis_pedidos.each do |pedido| %>
-    <%= link_to image_tag(pedido.cerveza.photo_url, class:"pedido", size:"56x56"), cerveza_pedido_path(pedido.cerveza, pedido), method: :delete%>
+  <% if user_signed_in? %>
+    <% @mis_pedidos.each do |pedido| %>
+      <%= link_to image_tag(pedido.cerveza.photo_url, class:"pedido", size:"56x56"), cerveza_pedido_path(pedido.cerveza, pedido), method: :delete%>
+    <% end %>
   <% end %>
 </div>
 
